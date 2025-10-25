@@ -31,6 +31,7 @@ SOONG_CONFIG_lineageGlobalVars += \
     target_init_vendor_lib \
     camera_needs_client_info_defaults \
     target_camera_package_name \
+    target_uses_miui_camera \
     target_trust_usb_control_path \
     target_trust_usb_control_enable \
     target_trust_usb_control_disable \
@@ -57,6 +58,7 @@ define addVar
 endef
 
 # Set default values
+TARGET_USES_MIUI_CAMERA ?= false
 TARGET_SURFACEFLINGER_UDFPS_LIB ?= surfaceflinger_udfps_lib
 TARGET_CAMERA_SERVICE_EXT_LIB ?= libcameraservice_ext_lib
 TARGET_INIT_VENDOR_LIB ?= vendor_init
@@ -70,6 +72,7 @@ TARGET_CHARGE_RATE_MULTIPLIER ?= 1
 TARGET_CAMERA_OVERRIDE_FORMAT_FROM_RESERVED ?= false
 
 # Soong value variables
+SOONG_CONFIG_lineageGlobalVars_target_uses_miui_camera := $(TARGET_USES_MIUI_CAMERA)
 SOONG_CONFIG_lineageGlobalVars_camera_skip_kind_check := $(CAMERA_SKIP_KIND_CHECK)
 SOONG_CONFIG_lineageGlobalVars_camera_override_format_from_reserved := $(TARGET_CAMERA_OVERRIDE_FORMAT_FROM_RESERVED)
 SOONG_CONFIG_lineageGlobalVars_target_camera_package_name := $(TARGET_CAMERA_PACKAGE_NAME)
